@@ -4,7 +4,7 @@ A full-stack application for managing employee data, featuring a React frontend,
 
 ## 🌐 System Overview
 
-![System Architecture Diagram](./Architecture_diagram.png)
+![System Architecture Diagram](./resources/Architecture_diagram.png)
 
 ## 🛠️ Technical Stack
 
