@@ -34,40 +34,53 @@ A full-stack application for managing employee data, featuring a React frontend,
 
 ```bash
 .
-├── backend/                  # Backend (Node.js + Express)
-│   ├── database/             # Database configuration and scripts
-│   │   └── init.sql          # SQL initialization script
-│   ├── src/                  # Backend source code
-│   │   ├── db.js             # Database connection setup
-│   │   ├── index.js          # Application entry point
-│   │   └── routes/           # API endpoint definitions
-│   │       └── employees.js  # Employee-related routes
-│   ├── Dockerfile            # Docker configuration for backend
-│   └── package.json          # Backend dependencies and scripts
+├── backend/                          # Backend (Node.js + Express + PostgreSQL)
+│   ├── database/                     # Database configuration and scripts
+│   │   └── init.sql                  # SQL initialization script
+│   │
+│   ├── src/                          # Backend source code
+│   │   ├── db.js                     # Database connection setup
+│   │   ├── index.js                  # Application entry point (Express server)
+│   │   │
+│   │   ├── models/                   # Data access layer (queries to DB)
+│   │   │   └── employeeModel.js      # Employee-related SQL queries
+│   │   │
+│   │   ├── controllers/              # Business logic layer
+│   │   │   └── employeeController.js # Handles requests & responses
+│   │   │
+│   │   └── routes/                   # API endpoint definitions
+│   │       └── employeeRoutes.js     # Employee-related routes
+│   │
+│   ├── Dockerfile                    # Docker configuration for backend
+│   └── package.json                  # Backend dependencies and scripts
 │
-├── frontend/                 # Frontend (React + Nginx)
-│   ├── public/               # Public assets
-│   │   └── index.html        # Main HTML template
-│   ├── src/                  # Frontend source code
-│   │   ├── components/       # React components
-│   │   │   ├── App.js        # Main component
-│   │   │   ├── AreaSection.jsx # Area section component
-│   │   │   ├── EmployeeCard.jsx # Employee card component
-│   │   │   └── EmployeeDetailsModal.jsx # Details modal component
-│   │   ├── services/         # API services/clients
-│   │   │   └── api.js        # Backend API calls setup
-│   │   ├── app.css           # Global styles
-│   │   ├── index.js          # React entry point
-│   │   └── reportWebVitals.js # Performance metrics
-│   ├── Dockerfile            # Docker configuration for frontend
-│   ├── nginx.conf            # Nginx web server configuration
-│   ├── package.json          # Frontend dependencies and scripts
-│   └── package-lock.json     # Exact dependency versions
+├── frontend/                         # Frontend (React + Nginx)
+│   ├── public/                       # Public assets
+│   │   └── index.html                # Main HTML template
+│   │
+│   ├── src/                          # Frontend source code
+│   │   ├── components/               # React UI components
+│   │   │   ├── App.js                # Root component
+│   │   │   ├── AreaSection.jsx       # Area section component
+│   │   │   ├── EmployeeCard.jsx      # Employee card component
+│   │   │   └── EmployeeDetailsModal.jsx # Employee details modal
+│   │   │
+│   │   ├── services/                 # API service layer
+│   │   │   └── api.js                # Axios/fetch setup for backend calls
+│   │   │
+│   │   ├── app.css                   # Global styles (could use Tailwind/Bootstrap)
+│   │   ├── index.js                  # React entry point
+│   │   └── reportWebVitals.js        # Performance metrics
+│   │
+│   ├── Dockerfile                    # Docker configuration for frontend
+│   ├── nginx.conf                    # Nginx web server configuration
+│   ├── package.json                  # Frontend dependencies and scripts
+│   └── package-lock.json             # Exact dependency versions
 │
-├── scripts/                  # Utility scripts
-│   └── load_employees.sh     # Initial employee data loading script
+├── scripts/                          # Utility scripts
+│   └── load_employees.sh             # Initial employee data loading script
 │
-└── docker-compose.yml        # Docker containers orchestration
+└── docker-compose.yml                # Multi-container orchestration (frontend + backend + db)
 ```
 ### 🔌 Accessing Services
 

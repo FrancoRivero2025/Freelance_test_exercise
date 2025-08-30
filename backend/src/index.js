@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import employeesRouter from "./routes/employees.js";
+import employeesRouter from "./routes/employeeRoutes.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
