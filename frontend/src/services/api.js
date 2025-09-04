@@ -42,8 +42,6 @@ export const employeeService = {
   fetchEmployeeById: async (id) => {
     return httpClient(`/employees/${id}`);
   },
-  
-  // TODO: Ready to add the rest of the API services.
 };
 
 export const fetchEmployees = employeeService.fetchEmployees;
