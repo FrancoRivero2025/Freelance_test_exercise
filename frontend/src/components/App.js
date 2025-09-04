@@ -3,12 +3,20 @@ import PropTypes from 'prop-types';
 import { fetchEmployees } from '../services/api';
 import AreaSection from './AreaSection';
 import EmployeeDetailsModal from './EmployeeDetailsModal';
-import '../app.css';
 
 // Component to manage load and error states
 const StatusHandler = ({ loading, error }) => {
-  if (loading) return <div className="loading">Cargando empleados...</div>;
-  if (error) return <div className="error">Error: {error}</div>;
+  if (loading) return (
+    <div className="loading text-center p-5 text-gray-500 bg-gray-100 rounded-lg text-lg">
+      Cargando empleados...
+    </div>
+  );
+  if (error) return (
+    <div className="error text-center p-5 text-white bg-red-500 rounded-lg text-lg shadow-md">
+      Error: {error}
+    </div>
+  );
+
   return null;
 };
 
@@ -71,8 +79,10 @@ const App = () => {
   }, []);
 
   return (
-    <div className="app">
-      <h1>Directorio de Empleados</h1>
+    <div className="app max-w-6xl mx-auto p-5 bg-gray-50 min-h-screen">
+      <h1 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-blue-500 to-blue-800 bg-clip-text text-transparent pb-2">
+        Directorio de Empleados
+      </h1>
       
       <StatusHandler loading={loading} error={error} />
       
